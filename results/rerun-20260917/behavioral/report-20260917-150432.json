@@ -1,0 +1,1374 @@
+{
+  "schemaVersion": 1,
+  "subject": {
+    "id": "six-thinking-hats",
+    "path": "/home/cesc/Documents/personal-workspace/six-thingking-hats",
+    "digest": "sha256:6bde3204a216004b44ca82a5031319a50ee3810ef7336e94203d1fdedc7e5393"
+  },
+  "startedAt": "2026-09-17T07:57:30.261612+00:00",
+  "finishedAt": "2026-09-17T08:04:32.174164+00:00",
+  "selection": {
+    "cases": [
+      "full-vietnamese-decision",
+      "quick-vietnamese",
+      "single-black-hat",
+      "facilitate-meeting",
+      "incident-retro",
+      "insufficient-decision-context",
+      "trivial-non-trigger",
+      "full-english-go-no-go"
+    ],
+    "profiles": [
+      "with-skill",
+      "baseline"
+    ],
+    "repeat": 1,
+    "jobs": 2
+  },
+  "staticValidation": {
+    "status": "passed",
+    "summary": {
+      "passed": 8,
+      "failed": 0,
+      "total": 8
+    },
+    "checks": [
+      {
+        "oracle": "skill.file-exists",
+        "status": "passed",
+        "expected": "SKILL.md",
+        "actual": "/home/cesc/Documents/personal-workspace/six-thingking-hats/SKILL.md"
+      },
+      {
+        "oracle": "skill.frontmatter",
+        "status": "passed",
+        "expected": "valid frontmatter",
+        "actual": [
+          "description",
+          "metadata",
+          "name"
+        ]
+      },
+      {
+        "oracle": "skill.name",
+        "status": "passed",
+        "expected": "lowercase kebab-case",
+        "actual": "six-thinking-hats"
+      },
+      {
+        "oracle": "skill.description",
+        "status": "passed",
+        "expected": "1..1024 chars",
+        "actual": 770
+      },
+      {
+        "oracle": "skill.body",
+        "status": "passed",
+        "expected": "non-empty",
+        "actual": 11802
+      },
+      {
+        "oracle": "skill.size",
+        "status": "passed",
+        "expected": "<=100000 chars",
+        "actual": 12747
+      },
+      {
+        "oracle": "skill.references",
+        "status": "passed",
+        "expected": [
+          "assets/report-template.md",
+          "references/example-x-technology.md",
+          "references/hats.md",
+          "references/sequences.md"
+        ],
+        "actual": {
+          "missing": []
+        }
+      },
+      {
+        "oracle": "skill.package-files",
+        "status": "passed",
+        "expected": [
+          "references/hats.md",
+          "references/sequences.md",
+          "references/example-x-technology.md",
+          "assets/report-template.md"
+        ],
+        "actual": {
+          "missing": []
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "runId": "baseline-full-vietnamese-decision-1-3abd131c",
+      "caseId": "full-vietnamese-decision",
+      "suite": "core",
+      "mode": "full",
+      "profile": "baseline",
+      "profileMetadata": {
+        "subject": "none",
+        "treatment": "no-skill"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Dùng 6 chiếc mũ để quyết định: đội 4 người có nên tách module thanh toán từ monolith thành microservice trong quý này không? Ngân sách không tăng, deadline cuối quý, hệ thống hiện ổn định nhưng deploy toàn hệ thống mất 45 phút. Hãy phân tích đầy đủ và đưa ra quyết định có kế hoạch hành động.",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--ignore-rules",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 83710,
+        "stdoutChars": 14497,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "full-vietnamese-decision",
+        "status": "failed",
+        "summary": {
+          "passed": 4,
+          "failed": 10,
+          "total": 14
+        },
+        "hatSequence": [],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "failed",
+            "expected": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Option 0",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "[FACT:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "[NEED-DATA:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Khuyến nghị",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Điều kiện",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Tiêu chí hoàn thành",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "failed",
+            "expected": [
+              "Ngắn hạn",
+              "Short term"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "failed",
+            "expected": [
+              "Trung hạn",
+              "Mid term"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Dài hạn",
+              "Long term"
+            ],
+            "actual": [
+              "Dài hạn"
+            ]
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Chủ trì",
+              "Owner"
+            ],
+            "actual": [
+              "Owner"
+            ]
+          },
+          {
+            "oracle": "green.min-ideas",
+            "status": "failed",
+            "expected": 3,
+            "actual": 0
+          },
+          {
+            "oracle": "red.max-sentences",
+            "status": "failed",
+            "expected": 2,
+            "actual": 0
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 1193
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/baseline-full-vietnamese-decision-1-3abd131c/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/baseline-full-vietnamese-decision-1-3abd131c/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/baseline-full-vietnamese-decision-1-3abd131c/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "baseline-quick-vietnamese-1-6c4c96b6",
+      "caseId": "quick-vietnamese",
+      "suite": "core",
+      "mode": "quick",
+      "profile": "baseline",
+      "profileMetadata": {
+        "subject": "none",
+        "treatment": "no-skill"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Phân tích nhanh bằng 6 chiếc mũ: có nên mua công cụ SaaS monitoring 20 triệu/tháng thay vì tiếp tục tự vận hành Prometheus? Team 3 người, cần quyết định trong tuần này.",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--ignore-rules",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 23042,
+        "stdoutChars": 2794,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "quick-vietnamese",
+        "status": "failed",
+        "summary": {
+          "passed": 3,
+          "failed": 4,
+          "total": 7
+        },
+        "hatSequence": [],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "failed",
+            "expected": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Option 0",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "[FACT:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "[NEED-DATA:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Khuyến nghị",
+            "actual": null
+          },
+          {
+            "oracle": "response.max-chars",
+            "status": "passed",
+            "expected": 7000,
+            "actual": 2794
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 264
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/baseline-quick-vietnamese-1-6c4c96b6/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/baseline-quick-vietnamese-1-6c4c96b6/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/baseline-quick-vietnamese-1-6c4c96b6/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "with-skill-facilitate-meeting-1-90f16d72",
+      "caseId": "facilitate-meeting",
+      "suite": "modes",
+      "mode": "facilitate",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Hãy dùng chế độ facilitate để tạo kịch bản cuộc họp 60 phút cho 8 người nhằm quyết định build hay buy hệ thống CRM. Cần timebox và câu hỏi cho từng mũ, không phân tích thay nhóm.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 179017,
+        "stdoutChars": 10854,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "facilitate-meeting",
+        "status": "passed",
+        "summary": {
+          "passed": 8,
+          "failed": 0,
+          "total": 8
+        },
+        "hatSequence": [
+          "blue",
+          "white",
+          "red",
+          "yellow",
+          "black",
+          "green",
+          "red",
+          "blue"
+        ],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "passed",
+            "expected": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ],
+            "actual": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ]
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "60",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "phút",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "timebox",
+              "Thời lượng",
+              "Thời gian"
+            ],
+            "actual": [
+              "timebox",
+              "Thời gian"
+            ]
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "facilitator",
+              "Điều phối"
+            ],
+            "actual": [
+              "Điều phối"
+            ]
+          },
+          {
+            "oracle": "text.not-contains",
+            "status": "passed",
+            "expected": "Khuyến nghị chọn build",
+            "actual": null
+          },
+          {
+            "oracle": "text.not-contains",
+            "status": "passed",
+            "expected": "Khuyến nghị chọn buy",
+            "actual": null
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 1231
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-facilitate-meeting-1-90f16d72/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-facilitate-meeting-1-90f16d72/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-facilitate-meeting-1-90f16d72/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "with-skill-full-english-go-no-go-1-6296c539",
+      "caseId": "full-english-go-no-go",
+      "suite": "language",
+      "mode": "full",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Use six thinking hats for a go/no-go decision: should we launch the beta on Friday? There are 12 known low-severity bugs, no data-loss bugs, support coverage is available for the weekend, and rollback takes 15 minutes. Provide a complete analysis and action plan.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 79619,
+        "stdoutChars": 13950,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "full-english-go-no-go",
+        "status": "failed",
+        "summary": {
+          "passed": 4,
+          "failed": 3,
+          "total": 7
+        },
+        "hatSequence": [
+          "blue",
+          "white",
+          "yellow",
+          "black",
+          "red",
+          "blue"
+        ],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "passed",
+            "expected": [
+              "blue",
+              "white",
+              "yellow",
+              "black",
+              "red",
+              "blue"
+            ],
+            "actual": [
+              "blue",
+              "white",
+              "yellow",
+              "black",
+              "red",
+              "blue"
+            ]
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Option 0",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "[FACT:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "[NEED-DATA:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Recommendation",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Exit criterion",
+            "actual": null
+          },
+          {
+            "oracle": "response.language",
+            "status": "failed",
+            "expected": "en",
+            "actual": {
+              "ascii_letter_ratio": 0.786
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-full-english-go-no-go-1-6296c539/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-full-english-go-no-go-1-6296c539/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-full-english-go-no-go-1-6296c539/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "with-skill-full-vietnamese-decision-1-31efdb32",
+      "caseId": "full-vietnamese-decision",
+      "suite": "core",
+      "mode": "full",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Dùng 6 chiếc mũ để quyết định: đội 4 người có nên tách module thanh toán từ monolith thành microservice trong quý này không? Ngân sách không tăng, deadline cuối quý, hệ thống hiện ổn định nhưng deploy toàn hệ thống mất 45 phút. Hãy phân tích đầy đủ và đưa ra quyết định có kế hoạch hành động.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": -9,
+        "timedOut": true,
+        "durationMs": 302037,
+        "stdoutChars": 0,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "full-vietnamese-decision",
+        "status": "failed",
+        "summary": {
+          "passed": 0,
+          "failed": 14,
+          "total": 14
+        },
+        "hatSequence": [],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "failed",
+            "expected": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Option 0",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "[FACT:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "[NEED-DATA:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Khuyến nghị",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Điều kiện",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "failed",
+            "expected": "Tiêu chí hoàn thành",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "failed",
+            "expected": [
+              "Ngắn hạn",
+              "Short term"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "failed",
+            "expected": [
+              "Trung hạn",
+              "Mid term"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "failed",
+            "expected": [
+              "Dài hạn",
+              "Long term"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "failed",
+            "expected": [
+              "Chủ trì",
+              "Owner"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "green.min-ideas",
+            "status": "failed",
+            "expected": 3,
+            "actual": 0
+          },
+          {
+            "oracle": "red.max-sentences",
+            "status": "failed",
+            "expected": 2,
+            "actual": 0
+          },
+          {
+            "oracle": "response.language",
+            "status": "failed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 0
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-full-vietnamese-decision-1-31efdb32/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-full-vietnamese-decision-1-31efdb32/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-full-vietnamese-decision-1-31efdb32/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "with-skill-incident-retro-1-6221dc8c",
+      "caseId": "incident-retro",
+      "suite": "modes",
+      "mode": "retro",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Chạy retrospective bằng 6 chiếc mũ cho sự cố sau: 09:00 deploy, 09:12 error rate tăng, 09:18 rollback bắt đầu, 09:27 dịch vụ phục hồi. Chưa biết nguyên nhân gốc. Hãy giữ facts và assumptions tách biệt.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 81196,
+        "stdoutChars": 13213,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "incident-retro",
+        "status": "passed",
+        "summary": {
+          "passed": 6,
+          "failed": 0,
+          "total": 6
+        },
+        "hatSequence": [
+          "blue",
+          "white",
+          "red",
+          "yellow",
+          "black",
+          "green",
+          "blue"
+        ],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "passed",
+            "expected": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "blue"
+            ],
+            "actual": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "blue"
+            ]
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "[FACT:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "[NEED-DATA:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "09:00",
+              "09h00"
+            ],
+            "actual": [
+              "09:00"
+            ]
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "09:27",
+              "09h27"
+            ],
+            "actual": [
+              "09:27"
+            ]
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 1223
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-incident-retro-1-6221dc8c/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-incident-retro-1-6221dc8c/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-incident-retro-1-6221dc8c/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "with-skill-insufficient-decision-context-1-6d8ac923",
+      "caseId": "insufficient-decision-context",
+      "suite": "guardrails",
+      "mode": "clarify",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Six hats: tôi nên chọn phương án nào?",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 8531,
+        "stdoutChars": 239,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "insufficient-decision-context",
+        "status": "passed",
+        "summary": {
+          "passed": 4,
+          "failed": 0,
+          "total": 4
+        },
+        "hatSequence": [
+          "blue"
+        ],
+        "checks": [
+          {
+            "oracle": "response.question-count",
+            "status": "passed",
+            "expected": 1,
+            "actual": 1
+          },
+          {
+            "oracle": "hat.max-occurrences",
+            "status": "passed",
+            "expected": 1,
+            "actual": 1
+          },
+          {
+            "oracle": "response.max-chars",
+            "status": "passed",
+            "expected": 1200,
+            "actual": 239
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 31
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-insufficient-decision-context-1-6d8ac923/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-insufficient-decision-context-1-6d8ac923/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-insufficient-decision-context-1-6d8ac923/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "with-skill-quick-vietnamese-1-0288339f",
+      "caseId": "quick-vietnamese",
+      "suite": "core",
+      "mode": "quick",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Phân tích nhanh bằng 6 chiếc mũ: có nên mua công cụ SaaS monitoring 20 triệu/tháng thay vì tiếp tục tự vận hành Prometheus? Team 3 người, cần quyết định trong tuần này.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 34116,
+        "stdoutChars": 4264,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "quick-vietnamese",
+        "status": "passed",
+        "summary": {
+          "passed": 7,
+          "failed": 0,
+          "total": 7
+        },
+        "hatSequence": [
+          "blue",
+          "white",
+          "red",
+          "yellow",
+          "black",
+          "green",
+          "red",
+          "blue"
+        ],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "passed",
+            "expected": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ],
+            "actual": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ]
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Option 0",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "[FACT:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "[NEED-DATA:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Khuyến nghị",
+            "actual": null
+          },
+          {
+            "oracle": "response.max-chars",
+            "status": "passed",
+            "expected": 7000,
+            "actual": 4264
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 387
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-quick-vietnamese-1-0288339f/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-quick-vietnamese-1-0288339f/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-quick-vietnamese-1-0288339f/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "with-skill-single-black-hat-1-788d5048",
+      "caseId": "single-black-hat",
+      "suite": "modes",
+      "mode": "single",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Mũ đen thôi: đánh giá kế hoạch rewrite toàn bộ backend trong 8 tuần trong khi vẫn phải phát triển feature mới. Team 5 người.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 43780,
+        "stdoutChars": 6980,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "single-black-hat",
+        "status": "passed",
+        "summary": {
+          "passed": 6,
+          "failed": 0,
+          "total": 6
+        },
+        "hatSequence": [
+          "blue",
+          "black"
+        ],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "passed",
+            "expected": [
+              "blue",
+              "black"
+            ],
+            "actual": [
+              "blue",
+              "black"
+            ]
+          },
+          {
+            "oracle": "hat.allowed",
+            "status": "passed",
+            "expected": [
+              "black",
+              "blue"
+            ],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Khả năng",
+              "Likelihood"
+            ],
+            "actual": [
+              "Khả năng"
+            ]
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Tác động",
+              "Impact"
+            ],
+            "actual": [
+              "Tác động"
+            ]
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Cơ chế",
+              "Mechanism"
+            ],
+            "actual": [
+              "Cơ chế"
+            ]
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 588
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-single-black-hat-1-788d5048/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-single-black-hat-1-788d5048/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-single-black-hat-1-788d5048/stderr.log",
+        "usage": null
+      }
+    },
+    {
+      "runId": "with-skill-trivial-non-trigger-1-84d6ab88",
+      "caseId": "trivial-non-trigger",
+      "suite": "guardrails",
+      "mode": "non-trigger",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Thủ đô của Nhật Bản là gì? Trả lời một câu ngắn.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 6350,
+        "stdoutChars": 30,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "trivial-non-trigger",
+        "status": "passed",
+        "summary": {
+          "passed": 5,
+          "failed": 0,
+          "total": 5
+        },
+        "hatSequence": [],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "passed",
+            "expected": [],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Tokyo",
+              "Tô-ky-ô",
+              "Tokyo."
+            ],
+            "actual": [
+              "Tokyo",
+              "Tokyo."
+            ]
+          },
+          {
+            "oracle": "hat.max-occurrences",
+            "status": "passed",
+            "expected": 0,
+            "actual": 0
+          },
+          {
+            "oracle": "response.max-chars",
+            "status": "passed",
+            "expected": 300,
+            "actual": 30
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 6
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-trivial-non-trigger-1-84d6ab88/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-trivial-non-trigger-1-84d6ab88/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/behavioral/runs/with-skill-trivial-non-trigger-1-84d6ab88/stderr.log",
+        "usage": null
+      }
+    }
+  ],
+  "summary": [
+    {
+      "profile": "baseline",
+      "runs": 2,
+      "passed": 0,
+      "executionFailures": 0,
+      "durationMs": 106752,
+      "passRate": 0.0,
+      "averageDurationMs": 53376
+    },
+    {
+      "profile": "with-skill",
+      "runs": 8,
+      "passed": 6,
+      "executionFailures": 1,
+      "durationMs": 734646,
+      "passRate": 0.75,
+      "averageDurationMs": 91831
+    }
+  ]
+}

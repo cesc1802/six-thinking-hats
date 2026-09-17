@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "with-skill": {
+      "command": "hermes",
+      "args": [
+        "chat",
+        "-q",
+        "{prompt}",
+        "-s",
+        "six-thinking-hats",
+        "-t",
+        "safe",
+        "-Q",
+        "--max-turns",
+        "8",
+        "--source",
+        "tool"
+      ],
+      "stripSessionHeader": true,
+      "timeoutMs": 600000,
+      "failureOutputPrefixes": [
+        "API call failed",
+        "HTTP 4",
+        "HTTP 5"
+      ],
+      "metadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      }
+    },
+    "baseline": {
+      "command": "hermes",
+      "args": [
+        "chat",
+        "-q",
+        "{prompt}",
+        "-t",
+        "safe",
+        "-Q",
+        "--max-turns",
+        "8",
+        "--ignore-rules",
+        "--source",
+        "tool"
+      ],
+      "stripSessionHeader": true,
+      "timeoutMs": 300000,
+      "failureOutputPrefixes": [
+        "API call failed",
+        "HTTP 4",
+        "HTTP 5"
+      ],
+      "metadata": {
+        "subject": "none",
+        "treatment": "no-skill"
+      }
+    }
+  }
+}

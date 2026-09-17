@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "subject": {
+    "id": "six-thinking-hats",
+    "path": "/home/cesc/Documents/personal-workspace/six-thingking-hats",
+    "digest": "sha256:902a16b18a9c698f263c947f5caed067557e4e6ae03ad3860b405b6e462f5811"
+  },
+  "startedAt": "2026-09-17T08:05:04.643162+00:00",
+  "finishedAt": "2026-09-17T08:07:08.486259+00:00",
+  "selection": {
+    "cases": [
+      "full-vietnamese-decision"
+    ],
+    "profiles": [
+      "with-skill"
+    ],
+    "repeat": 1,
+    "jobs": 1
+  },
+  "staticValidation": {
+    "status": "passed",
+    "summary": {
+      "passed": 8,
+      "failed": 0,
+      "total": 8
+    },
+    "checks": [
+      {
+        "oracle": "skill.file-exists",
+        "status": "passed",
+        "expected": "SKILL.md",
+        "actual": "/home/cesc/Documents/personal-workspace/six-thingking-hats/SKILL.md"
+      },
+      {
+        "oracle": "skill.frontmatter",
+        "status": "passed",
+        "expected": "valid frontmatter",
+        "actual": [
+          "description",
+          "metadata",
+          "name"
+        ]
+      },
+      {
+        "oracle": "skill.name",
+        "status": "passed",
+        "expected": "lowercase kebab-case",
+        "actual": "six-thinking-hats"
+      },
+      {
+        "oracle": "skill.description",
+        "status": "passed",
+        "expected": "1..1024 chars",
+        "actual": 770
+      },
+      {
+        "oracle": "skill.body",
+        "status": "passed",
+        "expected": "non-empty",
+        "actual": 11802
+      },
+      {
+        "oracle": "skill.size",
+        "status": "passed",
+        "expected": "<=100000 chars",
+        "actual": 12747
+      },
+      {
+        "oracle": "skill.references",
+        "status": "passed",
+        "expected": [
+          "assets/report-template.md",
+          "references/example-x-technology.md",
+          "references/hats.md",
+          "references/sequences.md"
+        ],
+        "actual": {
+          "missing": []
+        }
+      },
+      {
+        "oracle": "skill.package-files",
+        "status": "passed",
+        "expected": [
+          "references/hats.md",
+          "references/sequences.md",
+          "references/example-x-technology.md",
+          "assets/report-template.md"
+        ],
+        "actual": {
+          "missing": []
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "runId": "with-skill-full-vietnamese-decision-1-686e1454",
+      "caseId": "full-vietnamese-decision",
+      "suite": "core",
+      "mode": "full",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Dùng 6 chiếc mũ để quyết định: đội 4 người có nên tách module thanh toán từ monolith thành microservice trong quý này không? Ngân sách không tăng, deadline cuối quý, hệ thống hiện ổn định nhưng deploy toàn hệ thống mất 45 phút. Hãy phân tích đầy đủ và đưa ra quyết định có kế hoạch hành động.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 123796,
+        "stdoutChars": 17741,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "full-vietnamese-decision",
+        "status": "passed",
+        "summary": {
+          "passed": 14,
+          "failed": 0,
+          "total": 14
+        },
+        "hatSequence": [
+          "blue",
+          "white",
+          "red",
+          "yellow",
+          "black",
+          "green",
+          "red",
+          "blue"
+        ],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "passed",
+            "expected": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ],
+            "actual": [
+              "blue",
+              "white",
+              "red",
+              "yellow",
+              "black",
+              "green",
+              "red",
+              "blue"
+            ]
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Option 0",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "[FACT:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "[NEED-DATA:",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Khuyến nghị",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Điều kiện",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Tiêu chí hoàn thành",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Ngắn hạn",
+              "Short term"
+            ],
+            "actual": [
+              "Ngắn hạn"
+            ]
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Trung hạn",
+              "Mid term"
+            ],
+            "actual": [
+              "Trung hạn"
+            ]
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Dài hạn",
+              "Long term"
+            ],
+            "actual": [
+              "Dài hạn"
+            ]
+          },
+          {
+            "oracle": "text.contains-any",
+            "status": "passed",
+            "expected": [
+              "Chủ trì",
+              "Owner"
+            ],
+            "actual": [
+              "Chủ trì",
+              "Owner"
+            ]
+          },
+          {
+            "oracle": "green.min-ideas",
+            "status": "passed",
+            "expected": 3,
+            "actual": 12
+          },
+          {
+            "oracle": "red.max-sentences",
+            "status": "passed",
+            "expected": 2,
+            "actual": 2
+          },
+          {
+            "oracle": "response.language",
+            "status": "passed",
+            "expected": "vi",
+            "actual": {
+              "vietnamese_diacritics": 1389
+            }
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/timeout-retry/runs/with-skill-full-vietnamese-decision-1-686e1454/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/timeout-retry/runs/with-skill-full-vietnamese-decision-1-686e1454/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/six-thingking-hats/results/rerun-20260917/timeout-retry/runs/with-skill-full-vietnamese-decision-1-686e1454/stderr.log",
+        "usage": null
+      }
+    }
+  ],
+  "summary": [
+    {
+      "profile": "with-skill",
+      "runs": 1,
+      "passed": 1,
+      "executionFailures": 0,
+      "durationMs": 123796,
+      "passRate": 1.0,
+      "averageDurationMs": 123796
+    }
+  ]
+}
