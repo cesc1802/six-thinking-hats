@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "subject": {
+    "id": "six-thinking-hats",
+    "path": "/home/cesc/Documents/personal-workspace/skill-evals/six-thinking-hats/subject/six-thinking-hats",
+    "digest": "sha256:8e3d4bd88a4b9bb3895f9d0008c5e13c705c5ae62ef1fadff592b7fe83cc0e0d"
+  },
+  "startedAt": "2026-09-17T06:30:22.183056+00:00",
+  "finishedAt": "2026-09-17T06:30:28.850833+00:00",
+  "selection": {
+    "cases": [
+      "preflight-skill-load"
+    ],
+    "profiles": [
+      "with-skill"
+    ],
+    "repeat": 1,
+    "jobs": 1
+  },
+  "staticValidation": {
+    "status": "passed",
+    "summary": {
+      "passed": 8,
+      "failed": 0,
+      "total": 8
+    },
+    "checks": [
+      {
+        "oracle": "skill.file-exists",
+        "status": "passed",
+        "expected": "SKILL.md",
+        "actual": "/home/cesc/Documents/personal-workspace/skill-evals/six-thinking-hats/subject/six-thinking-hats/SKILL.md"
+      },
+      {
+        "oracle": "skill.frontmatter",
+        "status": "passed",
+        "expected": "valid frontmatter",
+        "actual": [
+          "description",
+          "metadata",
+          "name"
+        ]
+      },
+      {
+        "oracle": "skill.name",
+        "status": "passed",
+        "expected": "lowercase kebab-case",
+        "actual": "six-thinking-hats"
+      },
+      {
+        "oracle": "skill.description",
+        "status": "passed",
+        "expected": "1..1024 chars",
+        "actual": 770
+      },
+      {
+        "oracle": "skill.body",
+        "status": "passed",
+        "expected": "non-empty",
+        "actual": 7864
+      },
+      {
+        "oracle": "skill.size",
+        "status": "passed",
+        "expected": "<=100000 chars",
+        "actual": 8809
+      },
+      {
+        "oracle": "skill.references",
+        "status": "passed",
+        "expected": [
+          "assets/report-template.md",
+          "references/example-x-technology.md",
+          "references/hats.md",
+          "references/sequences.md"
+        ],
+        "actual": {
+          "missing": []
+        }
+      },
+      {
+        "oracle": "skill.package-files",
+        "status": "passed",
+        "expected": [
+          "references/hats.md",
+          "references/sequences.md",
+          "references/example-x-technology.md",
+          "assets/report-template.md"
+        ],
+        "actual": {
+          "missing": []
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "runId": "with-skill-preflight-skill-load-1-5985dc04",
+      "caseId": "preflight-skill-load",
+      "suite": "preflight",
+      "mode": "metadata",
+      "profile": "with-skill",
+      "profileMetadata": {
+        "subject": "six-thinking-hats",
+        "treatment": "skill-preloaded"
+      },
+      "iteration": 1,
+      "execution": {
+        "command": "hermes",
+        "args": [
+          "chat",
+          "-q",
+          "Without guessing, report the exact version and author from the metadata of the preloaded six-thinking-hats skill. If that metadata is not present in your context, reply exactly NOT_LOADED.",
+          "-s",
+          "six-thinking-hats",
+          "-t",
+          "safe",
+          "-Q",
+          "--max-turns",
+          "8",
+          "--source",
+          "tool"
+        ],
+        "exitCode": 0,
+        "timedOut": false,
+        "durationMs": 6664,
+        "stdoutChars": 40,
+        "stderrChars": 36,
+        "adapterFailure": false,
+        "failureReasons": []
+      },
+      "usage": null,
+      "verification": {
+        "caseId": "preflight-skill-load",
+        "status": "passed",
+        "summary": {
+          "passed": 5,
+          "failed": 0,
+          "total": 5
+        },
+        "hatSequence": [],
+        "checks": [
+          {
+            "oracle": "hat.sequence",
+            "status": "passed",
+            "expected": [],
+            "actual": []
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "1.0.0",
+            "actual": null
+          },
+          {
+            "oracle": "text.contains",
+            "status": "passed",
+            "expected": "Nguyen Van Thuoc",
+            "actual": null
+          },
+          {
+            "oracle": "text.not-contains",
+            "status": "passed",
+            "expected": "NOT_LOADED",
+            "actual": null
+          },
+          {
+            "oracle": "response.max-chars",
+            "status": "passed",
+            "expected": 500,
+            "actual": 40
+          }
+        ]
+      },
+      "artifacts": {
+        "stdout": "/home/cesc/Documents/personal-workspace/skill-evals/six-thinking-hats/results/preflight/runs/with-skill-preflight-skill-load-1-5985dc04/stdout.log",
+        "response": "/home/cesc/Documents/personal-workspace/skill-evals/six-thinking-hats/results/preflight/runs/with-skill-preflight-skill-load-1-5985dc04/response.md",
+        "stderr": "/home/cesc/Documents/personal-workspace/skill-evals/six-thinking-hats/results/preflight/runs/with-skill-preflight-skill-load-1-5985dc04/stderr.log",
+        "usage": null
+      }
+    }
+  ],
+  "summary": [
+    {
+      "profile": "with-skill",
+      "runs": 1,
+      "passed": 1,
+      "executionFailures": 0,
+      "durationMs": 6664,
+      "passRate": 1.0,
+      "averageDurationMs": 6664
+    }
+  ]
+}

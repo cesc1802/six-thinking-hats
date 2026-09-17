@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "preflight-skill-load",
+      "suite": "preflight",
+      "mode": "metadata",
+      "profiles": ["with-skill"],
+      "prompt": "Without guessing, report the exact version and author from the metadata of the preloaded six-thinking-hats skill. If that metadata is not present in your context, reply exactly NOT_LOADED.",
+      "expectedHatSequence": [],
+      "required": ["1.0.0", "Nguyen Van Thuoc"],
+      "forbidden": ["NOT_LOADED"],
+      "maxChars": 500
+    },
+    {
+      "id": "full-vietnamese-decision",
+      "suite": "core",
+      "mode": "full",
+      "profiles": ["with-skill", "baseline"],
+      "prompt": "Dùng 6 chiếc mũ để quyết định: đội 4 người có nên tách module thanh toán từ monolith thành microservice trong quý này không? Ngân sách không tăng, deadline cuối quý, hệ thống hiện ổn định nhưng deploy toàn hệ thống mất 45 phút. Hãy phân tích đầy đủ và đưa ra quyết định có kế hoạch hành động.",
+      "expectedHatSequence": ["blue", "white", "red", "yellow", "black", "green", "red", "blue"],
+      "required": ["Option 0", "[FACT:", "[NEED-DATA:", "Khuyến nghị", "Điều kiện", "Tiêu chí hoàn thành"],
+      "requiredAny": [["Ngắn hạn", "Short term"], ["Trung hạn", "Mid term"], ["Dài hạn", "Long term"], ["Chủ trì", "Owner"]],
+      "minGreenIdeas": 3,
+      "maxRedFirstSentences": 2,
+      "language": "vi"
+    },
+    {
+      "id": "quick-vietnamese",
+      "suite": "core",
+      "mode": "quick",
+      "profiles": ["with-skill", "baseline"],
+      "prompt": "Phân tích nhanh bằng 6 chiếc mũ: có nên mua công cụ SaaS monitoring 20 triệu/tháng thay vì tiếp tục tự vận hành Prometheus? Team 3 người, cần quyết định trong tuần này.",
+      "expectedHatSequence": ["blue", "white", "red", "yellow", "black", "green", "red", "blue"],
+      "required": ["Option 0", "[FACT:", "[NEED-DATA:", "Khuyến nghị"],
+      "maxChars": 7000,
+      "language": "vi"
+    },
+    {
+      "id": "single-black-hat",
+      "suite": "modes",
+      "mode": "single",
+      "profiles": ["with-skill"],
+      "prompt": "Mũ đen thôi: đánh giá kế hoạch rewrite toàn bộ backend trong 8 tuần trong khi vẫn phải phát triển feature mới. Team 5 người.",
+      "expectedHatSequence": ["blue", "black"],
+      "allowedHats": ["blue", "black"],
+      "requiredAny": [["Khả năng", "Likelihood"], ["Tác động", "Impact"], ["Cơ chế", "Mechanism"]],
+      "language": "vi"
+    },
+    {
+      "id": "facilitate-meeting",
+      "suite": "modes",
+      "mode": "facilitate",
+      "profiles": ["with-skill"],
+      "prompt": "Hãy dùng chế độ facilitate để tạo kịch bản cuộc họp 60 phút cho 8 người nhằm quyết định build hay buy hệ thống CRM. Cần timebox và câu hỏi cho từng mũ, không phân tích thay nhóm.",
+      "expectedHatSequence": ["blue", "white", "red", "yellow", "black", "green", "red", "blue"],
+      "required": ["60", "phút"],
+      "requiredAny": [["timebox", "Thời lượng", "Thời gian"], ["facilitator", "Điều phối"]],
+      "forbidden": ["Khuyến nghị chọn build", "Khuyến nghị chọn buy"],
+      "language": "vi"
+    },
+    {
+      "id": "incident-retro",
+      "suite": "modes",
+      "mode": "retro",
+      "profiles": ["with-skill"],
+      "prompt": "Chạy retrospective bằng 6 chiếc mũ cho sự cố sau: 09:00 deploy, 09:12 error rate tăng, 09:18 rollback bắt đầu, 09:27 dịch vụ phục hồi. Chưa biết nguyên nhân gốc. Hãy giữ facts và assumptions tách biệt.",
+      "expectedHatSequence": ["blue", "white", "red", "yellow", "black", "green", "blue"],
+      "required": ["[FACT:", "[NEED-DATA:"],
+      "requiredAny": [["09:00", "09h00"], ["09:27", "09h27"]],
+      "language": "vi"
+    },
+    {
+      "id": "insufficient-decision-context",
+      "suite": "guardrails",
+      "mode": "clarify",
+      "profiles": ["with-skill"],
+      "prompt": "Six hats: tôi nên chọn phương án nào?",
+      "expectedQuestionCount": 1,
+      "maxHatOccurrences": 1,
+      "maxChars": 1200,
+      "language": "vi"
+    },
+    {
+      "id": "trivial-non-trigger",
+      "suite": "guardrails",
+      "mode": "non-trigger",
+      "profiles": ["with-skill"],
+      "prompt": "Thủ đô của Nhật Bản là gì? Trả lời một câu ngắn.",
+      "expectedHatSequence": [],
+      "maxHatOccurrences": 0,
+      "requiredAny": [["Tokyo", "Tô-ky-ô", "Tokyo."]],
+      "maxChars": 300,
+      "language": "vi"
+    },
+    {
+      "id": "full-english-go-no-go",
+      "suite": "language",
+      "mode": "full",
+      "profiles": ["with-skill"],
+      "prompt": "Use six thinking hats for a go/no-go decision: should we launch the beta on Friday? There are 12 known low-severity bugs, no data-loss bugs, support coverage is available for the weekend, and rollback takes 15 minutes. Provide a complete analysis and action plan.",
+      "expectedHatSequence": ["blue", "white", "yellow", "black", "red", "blue"],
+      "required": ["Option 0", "[FACT:", "[NEED-DATA:", "Recommendation", "Exit criterion"],
+      "language": "en"
+    }
+  ]
+}
