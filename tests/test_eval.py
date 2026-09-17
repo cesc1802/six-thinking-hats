@@ -107,7 +107,7 @@ Khuyến nghị: thử nhỏ. Owner: Tech Lead.
         self.assertEqual(result["status"], "passed", result)
 
     def test_static_validation_accepts_supplied_skill(self):
-        result = static_validate_skill(ROOT / "subject" / "six-thinking-hats")
+        result = static_validate_skill(ROOT)
         self.assertEqual(result["status"], "passed", result)
         self.assertGreaterEqual(result["summary"]["passed"], 6)
 

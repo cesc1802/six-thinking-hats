@@ -20,7 +20,7 @@ from .oracle import HAT_PATTERNS, evaluate_case, static_validate_skill
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CASES = ROOT / "cases" / "cases.json"
 DEFAULT_PROFILES = ROOT / "profiles.json"
-DEFAULT_SKILL = ROOT / "subject" / "six-thinking-hats"
+DEFAULT_SKILL = ROOT
 DEFAULT_RESULTS = ROOT / "results"
 
 

@@ -51,13 +51,16 @@ Both profiles use the same configured model/provider and the `safe` toolset.
 ## Run
 
 The Hermes CLI resolves `-s six-thinking-hats` from its installed skill
-catalog. Install the bundled subject before running and remove it afterward if
-you do not want to keep it:
+catalog. This repository is both the skill root and its eval project. To
+install only the runtime skill files for testing:
 
 ```bash
 # Refuses to overwrite an existing skill; inspect/backup first if this fails.
-test ! -e "$HOME/.hermes/skills/six-thinking-hats"
-cp -a subject/six-thinking-hats "$HOME/.hermes/skills/six-thinking-hats"
+target="$HOME/.hermes/skills/six-thinking-hats"
+test ! -e "$target"
+mkdir -p "$target"
+cp SKILL.md "$target/"
+cp -a references assets "$target/"
 hermes skills list | grep six-thinking-hats
 ```
 
